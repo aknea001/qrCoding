@@ -26,7 +26,7 @@ def checkID(id):
         db = mysql.connector.connect(**sqlConfig)
         cursor = db.cursor(buffered=True)
 
-        query = "SELECT id FROM qrs WHERE id = %s"
+        query = "SELECT id FROM qrs WHERE BINARY id = %s"
         cursor.execute(query, (id, ))
         result = cursor.fetchone()
 
@@ -43,4 +43,4 @@ def checkID(id):
             db.close()
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host="0.0.0.0") #change host to spes ip not all, all just for testin

@@ -8,4 +8,7 @@ SELECT * FROM qrs;
 -- @block
 INSERT INTO qrs (id)
 VALUES
-    (1)
+    ("aAbBB");
+
+-- @block
+SELECT * FROM qrs WHERE BINARY id = "aAbBB";
