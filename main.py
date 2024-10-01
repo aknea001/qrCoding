@@ -14,10 +14,6 @@ sqlConfig = {
     "database": "qrCoding"
 }
 
-@app.route("/")
-def index():
-    return "Hello, World!"
-
 @app.route("/<id>")
 def checkID(id):
     db = None
@@ -34,7 +30,6 @@ def checkID(id):
             return "Success"
         else:
             return "No viable qr with this ID"
-        
     except mysql.connector.Error as e:
         return f"ERROR: {e}"
     finally:
