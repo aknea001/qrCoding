@@ -22,15 +22,15 @@ sqlConfig = {
     "database": "qrCoding"
 }
 
-def addToDB():
+def addToDB(time):
     db = None
 
     try:
         db = mysql.connector.connect(**sqlConfig)
         cursor = db.cursor(buffered=True)
 
-        query = "INSERT INTO qrs (id) VALUES (%s);"
-        cursor.execute(query, (qrID, ))
+        query = "INSERT INTO qrs (id, expiration) VALUES (%s, DATE_ADD(NOW(), INTERVAL %s HOUR));"
+        cursor.execute(query, (qrID, time))
         db.commit()
     except mysql.connector.Error as e:
         print(f"ERROR: {e}")
@@ -41,7 +41,9 @@ def addToDB():
             db.close()
 
 def main():
-    addToDB()
+    time = input("Hours: ")
+
+    addToDB(time)
 
     qr.add_data(f"http://10.0.0.45:5000/{qrID}")
     qr.make(fit=True)
