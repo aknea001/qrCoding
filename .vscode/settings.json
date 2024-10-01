@@ -1,0 +1,32 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "test",
+            "database": "airbnb",
+            "username": "root",
+            "askForPassword": true
+        },
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "100.94.183.127",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "qr",
+            "database": "qrCoding",
+            "username": "keali",
+            "askForPassword": true
+        }
+    ]
+}
